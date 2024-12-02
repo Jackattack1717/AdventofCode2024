@@ -9,7 +9,7 @@ for line in input:
    allreports.append(y)
 input.close()
 
-#level check returns -1 if safe, otherwise value is problem val
+#level check returns -1 if safe, otherwise value is problem index
 def levelcheck(n):
     increasing=0 #starts as 0, 1 if increasing, -1 if decreasing
     safe=True
@@ -47,7 +47,7 @@ PD_safetyscore = 0
 for report2 in allreports:
     i = levelcheck(report2)
     if i != -1:
-        for j in range(0,len(report2)):
+        for j in range(0,len(report2)): #checks if removing any element will return a 'safe' score
             currtry=report2.copy() #.copy() makes sure you're passing a shallow copy
             currtry.pop(j)
             if levelcheck(currtry) == -1:
@@ -55,6 +55,5 @@ for report2 in allreports:
                 break
     else:
         PD_safetyscore +=1
-
 print("The safety score with the Problem Dampener is: " + str(PD_safetyscore))
 
