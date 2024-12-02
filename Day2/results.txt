@@ -1,0 +1,2 @@
+Safety Score without Problem Dampener: 269
+The safety score with the Problem Dampener is: 337

@@ -7,7 +7,7 @@ for line in input:
    x = line.split("   ")
    list1.append(int(x[0]))
    list2.append(int(x[1]))
-
+input.close()
 list1.sort()
 list2.sort()
 
