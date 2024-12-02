@@ -19,18 +19,8 @@ def levelcheck(n):
         if (abs(x) > 3) or (abs(x) == 0):
             #print("change greater than 3 or no change")
             return i
-        #establishes if increasing or decreasing
-        if increasing == 0:
-            if x>0:
-                increasing=1
-            elif x<0:
-                increasing=-1
-        #check change in increase or decrease
-        if increasing == 1 and x<0:
-            #print("went from increase to decrease")
-            return i
-        if increasing == -1 and x>0:
-            #print("went from decrease to increase")
+        #can check increase or decrease by whether its already 'sorted'
+        if n != sorted(n) and n != sorted(n,reverse=True):
             return i
     return -1
 
