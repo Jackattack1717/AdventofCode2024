@@ -9,39 +9,6 @@ for line in input:
    allreports.append(y)
 input.close()
 
-#calculating report safety levels (Challenge pt1)
-reportsafetyscore = 0
-for report in allreports:
-    increasing=0 #starts as 0, 1 if increasing, -1 if decreasing
-    safe=True
-    for i in range(0,len(report)-1):
-        x = report[i+1] - report[i]
-        #checks changes greater than 3
-        if (abs(x) > 3) or (abs(x) == 0):
-            #print("change greater than 3 or no change")
-            safe=False
-            break
-        #establishes if increasing or decreasing
-        if increasing == 0:
-            if x>0:
-                increasing=1
-            elif x<0:
-                increasing=-1
-        #check change in increase or decrease
-        if increasing == 1 and x<0:
-            #print("went from increase to decrease")
-            safe=False
-            break
-        if increasing == -1 and x>0:
-            #print("went from decrease to increase")
-            safe=False
-            break
-    if safe:
-        reportsafetyscore+=1
-print("Safety Score without Problem Dampener: " + str(reportsafetyscore))
-
-#Calculate safety score with Problem Dampener(Challenge pt2)
-
 #level check returns -1 if safe, otherwise value is problem val
 def levelcheck(n):
     increasing=0 #starts as 0, 1 if increasing, -1 if decreasing
@@ -67,7 +34,14 @@ def levelcheck(n):
             return i
     return -1
 
+#calculating report safety levels (Challenge pt1)
+norm_safetyscore = 0
+for report1 in allreports:
+    if levelcheck(report1)==-1:
+        norm_safetyscore+=1
+print("The Safety Score is: " + str(norm_safetyscore))
 
+#Calculate safety score with Problem Dampener(Challenge pt2)
 #checks each report, if the report fails initially, it goes through each element to see if an element removed will work
 PD_safetyscore = 0
 for report2 in allreports:
