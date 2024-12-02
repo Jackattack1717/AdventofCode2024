@@ -11,8 +11,6 @@ input.close()
 
 #level check returns -1 if safe, otherwise value is problem index
 def levelcheck(n):
-    increasing=0 #starts as 0, 1 if increasing, -1 if decreasing
-    safe=True
     for i in range(0,len(n)-1):
         x = n[i+1] - n[i]
         #checks changes greater than 3
