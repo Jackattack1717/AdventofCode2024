@@ -1,0 +1,2 @@
+The solution to puzzle 1 is: 5177
+The result of puzzle 2 is: 1686
